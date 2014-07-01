@@ -1,0 +1,96 @@
+\documentclass[12pt, oneside, a4paper, final]{book}
+\usepackage[slovak]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace, graphicx, totpages, listings, amsmath, color, subfig}
+
+\usepackage{pdfpages}
+
+% okraje
+\usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=2.0cm]{geometry}
+
+% písma
+\usepackage{lmodern}
+%\usepackage[light,math]{iwona}
+\usepackage{inconsolata}
+
+% klikateľné referencie a linky
+\usepackage[unicode=true]{hyperref}
+\hypersetup{colorlinks=false}
+
+% riadkovanie 1,5
+\onehalfspacing
+
+% cesta pre obrázky
+\graphicspath{{obrazky/}}
+
+\definecolor{lbcolor}{rgb}{0.95,0.95,0.95}
+
+\lstset{
+captionpos = b,
+basicstyle = \footnotesize,
+backgroundcolor = \color{lbcolor},
+basicstyle = \ttfamily,
+lineskip = -1.0pt
+}
+\renewcommand{\lstlistingname}{Výpis}
+
+\def\university{Univerzita Komenského v Bratislave}
+\def\universityShort{UK}
+\def\faculty{Fakulta matematiky, fyziky a informatiky}
+\def\facultyShort{FMFI}
+\def\studyProgramme{Aplikovaná informatika}
+\def\branchOfStudy{9.2.9 Aplikovaná informatika}
+\def\educationalDepartment{Katedra aplikovanej informatiky}
+\def\thesisTitle{ZUI prezentačný softvér}
+\def\author{Milan Lajtoš}
+\def\authorAbstract{LAJTOŠ, Milan}
+\def\advisor{Mgr.~Matej Novotný,~PhD.}
+\def\place{Bratislava}
+\def\date{2011}
+
+\begin{document}
+
+\frontmatter
+
+% nulové odsadenie odstavca
+\setlength{\parindent}{0pt}
+% medzera medzi odstavcami
+\setlength{\parskip}{\medskipamount}
+
+\pagestyle{plain}
+
+\include{obal}
+
+% obal nepočítame
+\setcounter{page}{1}
+
+\include{titulny_list}
+\include{zadanie}
+\include{cestne_vyhlasenie}
+\include{podakovanie}
+\include{abstrakt}
+\include{predhovor}
+
+% špeciálne pre obsah, ktorý to nafukuje
+\setlength{\parskip}{0pt}
+
+\tableofcontents
+\listoffigures
+
+\setlength{\parskip}{\medskipamount}
+
+\mainmatter
+\input{obsah}
+
+\backmatter
+
+\addcontentsline{toc}{chapter}{Literatúra}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{literatura}
+
+\appendix
+\include{priloha}
+
+\end{document}
